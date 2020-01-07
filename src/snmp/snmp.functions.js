@@ -20,10 +20,5 @@ const getSnmpValue = (oid,ip) =>{
 }
 
 
-const getAll = (oids,ip) => {
-    return new Promise(resolve => {
-        
-    })
-}
 
 exports.getSnmpValue = getSnmpValue
