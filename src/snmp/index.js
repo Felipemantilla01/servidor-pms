@@ -3,14 +3,15 @@ const snmpClient = require('./snmp.functions')
 
 
 let oids = require('../../db/schema.config.json')
-var pmsPv20AVars = oids.devices.PMS_PV_20A.MIB.var
-var pmsPv20AConsts = oids.devices.PMS_PV_20A.MIB.const
+var vars = oids.devices.MIB.var
+var consts = oids.devices.MIB.const
 
 
-console.log(pmsPv20AVars)
+console.log(vars)
+console.log(consts)
 
 async function main() {
-var result = await snmpClient.getSnmpValue(pmsPv20AVars.batteryVoltage, '10.41.14.6')
+var result = await snmpClient.getSnmpValue(consts.sysDescription, '10.41.14.6')
     console.log(result) 
 }
 main()
