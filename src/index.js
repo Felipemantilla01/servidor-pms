@@ -35,7 +35,7 @@ async function main() {
                     sysDescription:sysDescription.data.value,
                     sysLocation:sysLocation.data.value
                 }                
-                console.log(deviceVars)
+                //console.log(deviceVars)
                 let res = await dbClient.updateDevice(deviceVars)
                 
             }                        
@@ -43,4 +43,7 @@ async function main() {
         });
     }    
 }
-main()
+
+setInterval(() => {
+    main()
+}, 250);

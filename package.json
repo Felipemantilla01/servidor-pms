@@ -24,6 +24,7 @@
     "mongodb": "^3.4.1",
     "nodemon": "^2.0.2",
     "ping": "^0.2.2",
-    "snmp-native": "^1.2.0"
+    "snmp-native": "^1.2.0",
+    "socket.io": "^2.3.0"
   }
 }
