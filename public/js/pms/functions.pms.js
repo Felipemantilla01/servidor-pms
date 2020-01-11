@@ -14,7 +14,5 @@ function renderInformation(info){
     document.getElementById('comState').innerHTML = info.comState
     document.getElementById('sysUpTime').innerHTML = info.sysUpTime
     document.getElementById('deviceIp').innerHTML = info.deviceIp
-    document.getElementById('temperature').innerHTML = info.temperature
-
-    
+    document.getElementById('temperature').innerHTML = info.temperature    
 }

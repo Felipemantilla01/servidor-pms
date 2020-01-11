@@ -4,6 +4,16 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ .opacity{
+   opacity: 0.5;
+ }
+ .border-transparent{
+   border:none;
+ }
+
+ .comunicated-fail{
+  color: rgb(173, 45, 6);
+ }
  :root {
     --blue: #007bff;
     --indigo: #6610f2;

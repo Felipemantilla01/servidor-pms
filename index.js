@@ -1,3 +1,5 @@
+let sampleTime = 500 // on ms
+
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -7,6 +9,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server)
 /* clients for management the info to the frontend*/
 let clientDB = require('./src/db/db.functions')
+let clientSRC = require('./src/index')
 
 app.use(express.static(path.join(__dirname, '/public')))
 
@@ -19,14 +22,23 @@ io.on('connection', function(socket){
         setInterval(async () => {
             let info = await clientDB.findDeviceInfo(deviceIp)
             socket.emit('monitoringData', info)
-        }, 250);        
+        }, sampleTime);        
     })
 
     socket.on('getMonitoringDevices', async ()=>{
         console.log(`Client wants info from all devices`)
 
-        let info = await clientDB.findDevices()
-        socket.emit('devicesList', info)
+       setInterval(async () => {
+            let info = await clientDB.findDevices()
+            socket.emit('devicesList', info)
+       }, sampleTime);
+    })
+
+    socket.on('openingMonitoringService', (deviceIp)=>{
+        console.log(`Opening Monitoring Service for ${deviceIp}`)
+        setTimeout(() => {
+            socket.broadcast.emit('openMonitoringService', deviceIp)
+        }, sampleTime);
     })
 
 
@@ -37,4 +49,6 @@ io.on('connection', function(socket){
 
 server.listen(config.serverPort, ()=>{
     console.log(`Server on ${config.serverHost}:${config.serverPort}`)
+    clientSRC.monitoring(sampleTime)
+    console.log(`Monitoring service starting with a ${sampleTime}ms of sample time `)
 })

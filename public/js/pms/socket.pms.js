@@ -1,9 +1,12 @@
-
-let config = $.getJSON("../js/config/configuration.json", (config)=>{
     
-    var socket = io.connect(`http://${config.serverHost}:${config.serverPort}`, {'forceNew': true});    
+    var socket = io.connect(`http://${serverHost}:${serverPort}`, {'forceNew': true});    
 
-    socket.emit('getMonitoringData', '10.41.14.6') //empezamos monitoreo de equipo especifico enviando la ip
+
+    socket.on('openMonitoringService', (deviceIp)=>{
+        console.log(deviceIp)
+        socket.emit('getMonitoringData', deviceIp) //empezamos monitoreo de equipo especifico enviando la ip
+    })
+    
 
     socket.on('monitoringData', (info)=>{
         //console.log(info)
@@ -16,7 +19,5 @@ let config = $.getJSON("../js/config/configuration.json", (config)=>{
         }
     })
 
-})
 
 
-//

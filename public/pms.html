@@ -3,19 +3,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- Bootstrap and his dependecies-->
+	
+	<!-- Configuration files -->
+	<script src="js/config/configuration.js"></script>
+	
+	<!-- Bootstrap and his dependecies-->
         <link rel="stylesheet" href="css/bootstrap.css">   
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
         <script src="js/lib/jquery-3.3.1.js"></script>    
         <script src="js/lib/popper.js"></script>
         <script src="js/lib/bootstrap.js"></script>
-        <!-- Styles and scripts for index-->
+		<!-- Styles and scripts for index-->
+		
+				<!-- Scrips and styles for the navbar-->
+	<link rel="stylesheet" href="css/navbar/navbar.css">        
+	<script src="js/navbar/navbar.js"></script>
         
         
 
     <title>Monitoring Service </title>
 </head>
 <body>
+
+	<div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-expand-md navbar-light">					
+						<a class="navbar-brand" href="https://www.ottis.com.co/" target="_blank"><img src="img/Logo-Hardware.gif" alt=""></a>	
+						
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>						
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto py-4 py-md-0">
+								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<a class="dropdown-item" href="#">Something else here</a>
+										<a class="dropdown-item" href="#">Another action</a>
+									</div>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<button onclick="window.close()" class="nav-link bg-transparent border-transparent">Close</button>
+								</li>
+								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="/pms.html">Pms</a>
+								</li>
+								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<a class="dropdown-item" href="#">Something else here</a>
+										<a class="dropdown-item" href="#">Another action</a>
+									</div>
+								</li>
+								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="/historics.html">Historics</a>
+								</li>
+								<li class=" d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="#">TR-069</a>
+								</li>
+							</ul>
+						</div>
+						
+					</nav>		
+				</div>
+			</div>
+		</div>
+  </div>
+  <div class="mt-2">
+	<h4 align="center">Ottis Hardware</h4>
+  </div> 
+
+
+
+
+
+
+
+
+
+
     <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.5, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -8630,7 +8702,7 @@ IAAIAAKAACAACAACgAAgAAgAAoAAIAAIAAKAACAACAACgAAgAAgA69ffAf36gycBYKsAcAlsFsA/
 //xaB4D/KPWXMgT+pRRgAHghsGEAeAS2HAG8A8ArAwLApgFgENg2AIwywBzAj02CmI1gu6MwJoGt
 AxglIAAICQkJCQkJCQkJCQkJCQkJzaz/AQmEv675u5T+AAAAAElFTkSuQmCC" transform="matrix(0.271 0 0 0.2687 512.942 328.8406)">
 	</image>
-	<text id="deviceName" transform="matrix(1 0 0 1 582.8662 90.9619)" class="st0 st5">DEVICE NAME</text>
+	<text id="deviceName" transform="matrix(1 0 0 1 582.8662 90.9619)" class="text-uppercase st0 st5">DEVICE NAME</text>
 </g>
 </svg>
 
@@ -8639,4 +8711,20 @@ AxglIAAICQkJCQkJCQkJCQkJCQkJzaz/AQmEv675u5T+AAAAAElFTkSuQmCC" transform="matrix(
         <script src="js/lib/socket.io.js"></script>    
         <script src="js/pms/socket.pms.js"></script>        
 </body>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+	<!-- Copyright -->
+	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+	  <a href="http://ottis.com.co"> Ottis Hardware</a><br>
+	  <p style="font-size: 10px;">Powered by Felipe Mantilla</p>
+	  
+	</div>
+	<!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+  
 </html>
