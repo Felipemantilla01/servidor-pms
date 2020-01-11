@@ -82,58 +82,33 @@
 
 
   <div class="container">
-	  
-  <canvas id="myChart" ></canvas>
+	  <!-- Modal for select the device to see -->
+
+	<div class="modal" id="devicesModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title">Select a device</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <div id="list-of-devices">
+				  
+			  </div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
+  <canvas id="myChart" ></canvas> 
 
   </div>
-
-  <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var dataFirst = {
-  label: "Battery voltage (V)",
-  data: [0, 59, 75, 20, 20, 55, 40],
-  lineTension: 0,
-  // Set More Options
-};
-   
-var dataSecond = {
-  label: "Battery Current (A)",
-  data: [20, 15, 60, 60, 65, 30, 70],
-  lineTension: 0,
-  // Set More Options
-};
-   
-var speedData = {
-  labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
-  datasets: [dataFirst, dataSecond]
-};
- 
- 
-var lineChart = new Chart(ctx, {
-  type: 'line',
-  data: speedData
-});
-
- 
- /* var lineChart = new Chart(ctx, {
-	  type: 'line',
-	  data: {
-		  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-		  datasets: [{
-			  label: 'Battery Voltage',
-			  data: [12, 19, 3, 5, 2, 3],
-			  backgroundColor: 'rgba(255, 99, 132, 0.2)',
-			  borderColor: 'rgba(255, 99, 132, 1)',
-			  borderWidth: 1
-		  }]
-	  },
-
-  });
-
-*/
-
-  </script>
-
 
 
 

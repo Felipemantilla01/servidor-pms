@@ -1,0 +1,99 @@
+[
+    
+    {
+     
+        "deviceIp" : "10.41.14.6",
+        "deviceName" : "Pms La Rusia"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.4.0.91",
+        "deviceName" : "Pms Las Vueltas"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.67.0.66",
+        "deviceName" : "Pms La Carrera"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.62.0.82",
+        "deviceName" : "Pms Beteitiva"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.9.0.99",
+        "deviceName" : "Pms Sotaquira"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.56.0.82",
+        "deviceName" : "Pms MalSitio 2"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.50.0.50",
+        "deviceName" : "Pms Monquira"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.56.0.83",
+        "deviceName" : "Pms MalSitio 1"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.62.11.4",
+        "deviceName" : "Pms Portachuelo"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.65.0.10",
+        "deviceName" : "Pms Milagro"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.6.0.38",
+        "deviceName" : "Pms Gotua"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.53.0.29",
+        "deviceName" : "Pms Chorrera"
+    },
+    
+    
+    {
+    
+        "deviceIp" : "10.9.0.91",
+        "deviceName" : "Pms Laguna Negra"
+    },
+    
+    
+    {
+        "deviceIp" : "10.52.0.90",
+        "deviceName" : "Pms Tobaca"
+    }
+    
+    ]

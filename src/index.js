@@ -2,10 +2,10 @@ let dbClient = require('./db/db.functions')
 let snmpClient = require('./snmp/snmp.functions')
 let icmpClient = require('./ping/ping.functions')
 let configDevices = require('../db/schema.config.json')
+let historicsClient = require('./db/historics.functions')
 
 
-
-async function main() {
+async function main(mode) {
 
     let devices = await dbClient.findDevices()
     if(devices.status!='error'){
@@ -13,9 +13,6 @@ async function main() {
             
             /* Capture the current time for update this info with the last communication state*/
             
-
-
-
             let comState = await icmpClient.ping(device.deviceIp)
             if(comState.isAlive){
                 let lastTime = captureCurrentTime()
@@ -23,6 +20,8 @@ async function main() {
                 let batteryCurrent = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.batteryCurrent, device.deviceIp)
                 let panelVoltage = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.panelVoltage, device.deviceIp)
                 let panelCurrent = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.panelCurrent, device.deviceIp)
+                let loadVoltage = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.loadVoltage, device.deviceIp)
+                let loadCurrent = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.loadCurrent, device.deviceIp)
                 let temperature = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.temperature, device.deviceIp)
                 let sysUpTime = await snmpClient.getSnmpValue(configDevices.devices.MIB.var.sysUpTime, device.deviceIp)
                 let sysName = await snmpClient.getSnmpValue(configDevices.devices.MIB.const.sysName, device.deviceIp)
@@ -39,22 +38,35 @@ async function main() {
                     batteryCurrent: batteryCurrent.data.value,
                     panelVoltage: panelVoltage.data.value,
                     panelCurrent: panelCurrent.data.value,
+                    loadVoltage:loadVoltage.data.value,
+                    loadCurrent:loadCurrent.data.value,
                     temperature: temperature.data.value,
                     sysUpTime: sysUpTime.data.value,
                     sysName:sysName.data.value,
                     sysDescription:sysDescription.data.value,
                     sysLocation:sysLocation.data.value
                 }                
-                //console.log(deviceVars)
-                let res = await dbClient.updateDevice(deviceVars)
+
+                switch(mode){
+                    case 'monitoring':
+                        let responseDB = await dbClient.updateDevice(deviceVars)
+                        if(responseDB.status=='error'){console.log(`Error trying to update the state of ${deviceVars.deviceIp} at ${lastTime}`)}
+                        break;
+                    case 'historics':
+                        let resposeHis = await historicsClient.setNewData(deviceVars)        
+                        if(resposeHis.status=='error'){console.log(`Error trying to insert historic state of ${deviceVars.deviceIp} at ${lastTime}`)}
+                        break;
+                }
+
+                
+                
+
                 
             }                        
             //console.log(response)
         });
     }    
 }
-
-
 function captureCurrentTime() {
     let currentTime = new Date()
     let dateYear = currentTime.getFullYear()
@@ -67,12 +79,20 @@ function captureCurrentTime() {
     let lastTime = `${dateDate}-${dateMonth+1}-${dateYear} - ${dateHour}:${dateMinute}:${dateSeconds}`
     return(lastTime)
 }
-
-
 function monitoring(sampleTime){
     setInterval(() => {
-        main()
+        main('monitoring')
     }, sampleTime);
 }
 
+
+function historics(sampleTime){
+    setInterval(() => {
+        main('historics')
+    }, sampleTime);
+}
+
+
+
 exports.monitoring = monitoring
+exports.historics = historics

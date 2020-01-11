@@ -66,6 +66,9 @@ const findDeviceInfo = (deviceIp)=>{
     })
 }
 
+
+
+
 exports.updateDevice = updateDevice
 exports.findDevices = findDevices
 exports.findDeviceInfo = findDeviceInfo
