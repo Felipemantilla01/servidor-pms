@@ -1,119 +1,170 @@
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<!-- Configuration files -->
-	<script src="js/config/configuration.js"></script>
-	<script src="js/config/voltage.levels.js"></script>
+    <!-- Configuration files -->
+    <script src="js/config/configuration.js"></script>
+    <script src="js/config/voltage.levels.js"></script>
     <!-- Bootstrap and his dependecies-->
-    <link rel="stylesheet" href="css/bootstrap.css">   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
-    <script src="js/lib/jquery-3.3.1.js"></script>    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/lib/jquery-3.3.1.js"></script>
     <script src="js/lib/popper.js"></script>
-	<script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
 
-	<link rel="stylesheet" href="css/main.css ">
+    <link rel="stylesheet" href="css/main.css ">
 
-		<!-- Scrips and styles for the navbar-->
-	<link rel="stylesheet" href="css/navbar/navbar.css">        
-	<script src="js/navbar/navbar.js"></script>
-	
-	
-	<title>Document</title>
+    <!-- Scrips and styles for the navbar-->
+    <link rel="stylesheet" href="css/navbar/navbar.css">
+    <script src="js/navbar/navbar.js"></script>
+
+    <title>Document</title>
 </head>
+
 <body>
-	<div class="navigation-wrap bg-light start-header start-style">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="navbar navbar-expand-md navbar-light">					
-						<a class="navbar-brand" href="https://www.ottis.com.co/" target="_blank"><img src="img/Logo-Hardware.gif" alt=""></a>	
-						
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>						
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav ml-auto py-4 py-md-0">
-								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="#">Action</a>
-										<a class="dropdown-item" href="#">Another action</a>
-										<a class="dropdown-item" href="#">Something else here</a>
-										<a class="dropdown-item" href="#">Another action</a>
-									</div>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="/index.html">Devices</a>
-								</li>
-								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="/pms.html">Pms</a>
-								</li>
-								<li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="#">Action</a>
-										<a class="dropdown-item" href="#">Another action</a>
-										<a class="dropdown-item" href="#">Something else here</a>
-										<a class="dropdown-item" href="#">Another action</a>
-									</div>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="/historics.html">Historics</a>
-								</li>
-								<li class=" d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">TR-069</a>
-								</li>
-							</ul>
+
+    <div class="contenedor">
+        <button class="botonF1">
+            <span id="new-device">+</span>
+        </button>
+        <button class="d-none btn_float botonF2">
+            <span>+</span>
+        </button>
+        <button class="d-none btn_float botonF3">
+            <span>+</span>
+        </button>
+        <button class="d-none btn_float botonF4">
+            <span>+</span>
+        </button>
+        <button class="d-none btn_float botonF5">
+            <span>*</span>
+        </button>
+    </div>
+
+    <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand" href="https://www.ottis.com.co/" target="_blank"><img src="img/Logo-Hardware.gif" alt=""></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                <li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/index.html">Devices</a>
+                                </li>
+                                <li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/pms.html">Pms</a>
+                                </li>
+                                <li class="d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/historics.html">Historics</a>
+                                </li>
+                                <li class=" d-none nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="#">TR-069</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+	</div>
+	
+    <div class="mt-5">
+        <h4 align="center">Ottis Hardware</h4>
+    </div>
+
+    <div id="devices-table">
+        <div id="spinner">
+            <div class="loader">
+                <div class="face">
+                    <div class="circle"></div>
+                </div>
+                <div class="face">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newDeviceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add new device</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text" id="basic-addon1">Device name</span>
 						</div>
-						
-					</nav>		
-				</div>
-			</div>
-		</div>
-  </div>
-  <div class="mt-5">
-	<h4 align="center">Ottis Hardware</h4>
-  </div> 
+						<input id="inputDeviceName" type="text" class="form-control" placeholder="example: pms ottis hardware" aria-label="Username" aria-describedby="basic-addon1">
+					  </div>
+					  <div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text" id="basic-addon1">Device Ip</span>
+						</div>
+						<input id="inputDeviceIp" type="text" class="form-control" placeholder="example: 192.168.0.77" aria-label="Username" aria-describedby="basic-addon1">
+					  </div>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary-ottis" data-dismiss="modal">Cancel</button>
+                    <button id="inputSaveDevice" type="button" class="btn btn-secondary-ottis">Save device</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <div id="devices-table">
-	<div id="spinner" >
-		<div class="loader">
-		<div class="face">
-		  <div class="circle"></div>
-		</div>
-		<div class="face">
-		  <div class="circle"></div>
-		</div>
-		</div>
-		</div>
-  </div>
+    <script src="js/lib/socket.io.js"></script>
 
-
-
-  <script src="js/lib/socket.io.js"></script>  
-  
-<script src="js/index/socket.index.js"></script>
-<script src="js/index/functions.index.js"></script>
+    <script src="js/index/socket.index.js"></script>
+    <script src="js/index/functions.index.js"></script>
 
 </body>
 
 <!-- Footer -->
 <footer class="page-footer font-small blue">
 
-	<!-- Copyright -->
-	<div class="footer-copyright text-center py-3">© 2019 Copyright:
-	  <a href="http://ottis.com.co"> Ottis Hardware</a><br>
-	  <p style="font-size: 10px;">Powered by Felipe Mantilla</p>
-	  
-	</div>
-	<!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
-  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="http://ottis.com.co"> Ottis Hardware</a>
+        <br>
+        <p style="font-size: 10px;">Powered by Felipe Mantilla</p>
+
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
 </html>

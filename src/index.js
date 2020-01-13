@@ -48,6 +48,7 @@ async function main(mode) {
                 }                
 
                 switch(mode){
+                    
                     case 'monitoring':
                         let responseDB = await dbClient.updateDevice(deviceVars)
                         if(responseDB.status=='error'){console.log(`Error trying to update the state of ${deviceVars.deviceIp} at ${lastTime}`)}
@@ -63,7 +64,33 @@ async function main(mode) {
 
                 
             }                        
-            //console.log(response)
+           else{
+            let lastTime = captureCurrentTime()
+            let deviceVars = {
+                lastTime: lastTime,
+                deviceIp : device.deviceIp ,
+                deviceName : device.deviceName ,
+                comState: comState.isAlive,
+                batteryVoltage:'' ,
+                batteryCurrent: '' ,
+                panelVoltage: '',
+                panelCurrent: '',
+                loadVoltage:'',
+                loadCurrent:'',
+                temperature:'',
+                sysUpTime: '',
+                sysName:'',
+                sysDescription:'',
+                sysLocation:''
+            }
+            switch(mode){
+                case 'historics':
+                    let resposeHis = await historicsClient.setNewData(deviceVars)        
+                    if(resposeHis.status=='error'){console.log(`Error trying to insert historic state of ${deviceVars.deviceIp} at ${lastTime}`)}
+                    break;
+            }
+
+           }
         });
     }    
 }

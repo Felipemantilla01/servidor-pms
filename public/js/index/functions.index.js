@@ -5,7 +5,7 @@ function renderTable(info){
     var header = `<table class=" text-center table ">
     <thead>
       <tr>
-        <th scope="col">DEVICE NAME</th>
+        <th scope="col">DEVICE NAME </th>
         <th scope="col">IP MANAGEMENT</th>
         <th scope="col">TRACKING/LAST CAPTURE</th>
         <th scope="col">BATTERY VOLTAGE</th>
@@ -75,3 +75,31 @@ function openMonitoringService(deviceIp){
     monitoringWindow = window.open('/pms.html')
     socket.emit('openingMonitoringService', deviceIp)
 }
+
+
+$('.botonF1').hover(function(){
+  $('.btn').addClass('animacionVer');
+})
+$('.contenedor').mouseleave(function(){
+  $('.btn').removeClass('animacionVer');
+})
+
+
+document.getElementById('new-device').addEventListener('click', ()=>{  
+  $('#newDeviceModal').modal('show')
+})
+
+
+
+document.getElementById('inputSaveDevice').addEventListener('click', ()=>{  
+  $('#newDeviceModal').modal('hide')
+  var deviceName = document.getElementById('inputDeviceName').value
+  var  deviceIp = document.getElementById('inputDeviceIp').value
+  
+  var device = {
+    deviceName,
+    deviceIp
+  }
+  socket.emit('addNewDevice', device) 
+
+})

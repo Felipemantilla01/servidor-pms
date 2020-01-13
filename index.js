@@ -57,6 +57,10 @@ io.on('connection', function(socket){
         socket.emit('historics', response)
     })
 
+    socket.on('addNewDevice', async(device)=>{
+        console.log(device)
+    })
+
 
 
 
