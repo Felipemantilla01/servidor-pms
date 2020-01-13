@@ -40,7 +40,7 @@ io.on('connection', function(socket){
         console.log(`Opening Monitoring Service for ${deviceIp}`)
         setTimeout(() => {
             socket.broadcast.emit('openMonitoringService', deviceIp)
-        }, 1000);
+        }, 2000);
     })
 
     socket.on('openHistoricsService', async ()=>{
@@ -59,6 +59,15 @@ io.on('connection', function(socket){
 
     socket.on('addNewDevice', async(device)=>{
         console.log(device)
+        let response = await clientDB.insertDevice(device)
+        socket.emit('responseAddNewDevice', response)
+    })
+
+    socket.on('deleteDevice', async (deviceIp)=>{
+        console.log(`Client want delete the device ${deviceIp}`)
+        let response = await clientDB.deleteDevice(deviceIp)
+        console.log(response)
+        socket.emit('responseDeleteDevice', response)
     })
 
 

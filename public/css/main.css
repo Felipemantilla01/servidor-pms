@@ -146,6 +146,20 @@
 
 #mapid { height: 100%;}
 
+.circle-btn-btn {
+  
+  height: 30px;
+  width:  30px;
+  border-radius: 50%;
+  border: 1px solid red;
+  margin-left: auto;
+
+  
+}
+
+.center-items{
+  align-items: center;
+}
 
 
 *{
@@ -245,3 +259,20 @@
     border-color: #03539B;
   }
 
+  .botonDelete{
+    width:60px;
+    height:60px;
+    border-radius:100%;
+    background:#BB032F;
+    right:0;
+    bottom:0;
+    position:fixed;
+    margin-right:16px;
+    margin-bottom:96px;
+    border:none;
+    outline:none;
+    color:#FFF;
+    font-size:36px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition:.3s;  
+  }

@@ -1,10 +1,12 @@
 var monitoringWindow
+var deleteClass='d-none'
 
 function renderTable(info){
     //console.log(info)
     var header = `<table class=" text-center table ">
     <thead>
       <tr>
+        <th class="${deleteClass}" scope="col">ACTION </th>  
         <th scope="col">DEVICE NAME </th>
         <th scope="col">IP MANAGEMENT</th>
         <th scope="col">TRACKING/LAST CAPTURE</th>
@@ -56,7 +58,8 @@ function renderTable(info){
 
         return(`
       <tr class="${voltageClass}">
-        <th title="click to open the monitoring service for ${device.deviceName}" style="cursor: pointer" scope="row" onClick="openMonitoringService('${device.deviceIp}')">${device.deviceName}</th>
+        <th class="${deleteClass} center-items"><button onclick="deleteDevice('${device.deviceIp}', '${device.deviceName}')" class=" btn-danger circle-btn-btn" ><i class="fa fa-trash-o"></i></button></th>
+        <th title="click to open the monitoring service for ${device.deviceName}" style="cursor: pointer" scope="row" onClick="openMonitoringService('${device.deviceIp}')">${device.deviceName} </th>
         <td ><a  title="click to open the management service for ${device.deviceName}" class="text-dark" href="http://${device.deviceIp}">${device.deviceIp}</a></td>
         <td class="${comunicationClass} " >${comunicactionText} / ${device.lastTime}</td>
         <td>${device.batteryVoltage}</td>
@@ -100,6 +103,46 @@ document.getElementById('inputSaveDevice').addEventListener('click', ()=>{
     deviceName,
     deviceIp
   }
-  socket.emit('addNewDevice', device) 
-
+  socket.emit('addNewDevice', device)
+  window.scroll(0,0)
+  document.getElementById('messages').innerHTML = `    
+    <div class="alert alert-primary" role="alert">
+    The device ${deviceName} with Ip : ${deviceIp} has been added
+    </div>`
+    setTimeout(() => {
+      $(".alert").alert('close')
+    }, 3000);
 })
+
+
+document.getElementById('delete-devices').addEventListener('click', ()=>{
+  if(deleteClass=='d-none')
+  {
+    deleteClass=' '
+  }else{
+    deleteClass = 'd-none'
+  }
+})
+
+function deleteDevice(deviceIp,deviceName) {
+  window.scroll(0,0)
+  var clientSay = prompt(`if you are sure to delete enter the device name >> ${deviceName} <<  Note: delete the device deletes all information about him`);
+  if(clientSay == deviceName)
+  {
+    socket.emit('deleteDevice', deviceIp)
+    
+    document.getElementById('messages').innerHTML = `    
+    <div class="alert alert-primary" role="alert">
+    The device ${deviceName} with Ip : ${deviceIp} has been deleted
+    </div>`
+    setTimeout(() => {
+      $(".alert").alert('close')
+    }, 3000);
+  }
+  else{
+    alert(`Error: the device wasn't deleted`)
+  }
+
+
+  
+}
