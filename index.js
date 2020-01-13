@@ -40,7 +40,7 @@ io.on('connection', function(socket){
         console.log(`Opening Monitoring Service for ${deviceIp}`)
         setTimeout(() => {
             socket.broadcast.emit('openMonitoringService', deviceIp)
-        }, sampleTime);
+        }, 1000);
     })
 
     socket.on('openHistoricsService', async ()=>{

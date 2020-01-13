@@ -1,0 +1,147 @@
+.border-mark{
+	border-style:solid;
+	border-color: black;
+	border-width: 2px;
+}
+
+
+.rounded{
+	border-radius: 10px;
+}
+
+.border-transparent{
+	border-style: none;
+}
+
+.end{
+	position: absolute;
+  bottom: 0;
+  left: 1%;
+  right: 1%;
+}
+
+
+@media screen and (max-width: 1062px) {
+		div.movil {
+		display: none;
+        }
+
+        th.movil{
+            display:none;
+            font-size: 10;
+        }
+        td.movil{
+            display:none;
+            font-size: 10;            
+        }
+	}
+
+	@media screen and (min-width: 1061px) {
+		p.movil {
+		display:none;		
+		}
+	}
+	
+.loader {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 100px; /* Added */
+    margin-top: 100px; /* Added */
+    width: 20em;
+    height: 20em;
+    font-size: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader .face {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate 3s linear infinite;
+}
+
+.loader .face:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    color:#BB032F;
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+}
+
+.loader .face:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    color:#03539B;
+    border-color: currentColor currentColor transparent transparent;
+    border-width: 0.2em 0em 0em 0.2em;
+    --deg: -135deg;
+    animation-direction: reverse;
+}
+
+.loader .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+}
+
+.loader .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+                0 0 4em,
+                0 0 6em,
+                0 0 8em,
+                0 0 10em,
+                0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+
+@keyframes animate {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.debug{
+    display:none
+}
+
+.opacity-5{
+    opacity: 0.7;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+#mapid { height: 100%;}

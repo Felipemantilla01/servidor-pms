@@ -7,8 +7,9 @@ const getSnmpValue = (oid,ip) =>{
         var session = new snmp.Session({ host: ip, family: 'udp4', community: 'public' });
         session.get({ oid: oid }, function (error, varbinds) {
             if (error) {
-
-                if(debugLevel>4){console.log({status:'error', data:`Can't read the OID: ${oid} from device ${ip}`});}
+                var date = new Date()
+                time = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()} -- ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}` 
+                if(debugLevel>4){console.log({status:'error', data:`Can't read the OID: ${oid} from device ${ip} at ${time}`});}
                 session.close();
                 resolve({status:'error', data:`Can't read the OID: ${oid} from device ${ip}`})
             } else {                                
