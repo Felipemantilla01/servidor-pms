@@ -70,7 +70,7 @@ async function main(mode) {
                 lastTime: lastTime,
                 deviceIp : device.deviceIp ,
                 deviceName : device.deviceName ,
-                comState: comState.isAlive,
+                comState: false,
                 batteryVoltage:'' ,
                 batteryCurrent: '' ,
                 panelVoltage: '',
@@ -84,6 +84,17 @@ async function main(mode) {
                 sysLocation:''
             }
             switch(mode){
+                case 'monitoring':
+                         deviceVars = {
+                        deviceIp : device.deviceIp ,
+                        deviceName : device.deviceName ,
+                        comState: false,
+                    }
+
+                        let responseDB = await dbClient.updateDevice(deviceVars)
+                        if(responseDB.status=='error'){console.log(`Error trying to update the state of ${deviceVars.deviceIp} at ${lastTime}`)}
+                        break;
+                        
                 case 'historics':
                     let resposeHis = await historicsClient.setNewData(deviceVars)        
                     if(resposeHis.status=='error'){console.log(`Error trying to insert historic state of ${deviceVars.deviceIp} at ${lastTime}`)}
@@ -108,14 +119,23 @@ function captureCurrentTime() {
 }
 function monitoring(sampleTime){
     setInterval(() => {
+       try{
         main('monitoring')
+       }catch(error){
+           console.log(error)
+       }
     }, sampleTime);
 }
 
 
 function historics(sampleTime){
     setInterval(() => {
-        main('historics')
+        
+        try{
+            main('historics')
+           }catch(error){
+               console.log(error)
+           }
     }, sampleTime);
 }
 
