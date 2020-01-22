@@ -50,7 +50,9 @@ function renderTable(info){
         }
         
         
-            
+            //converts the isodate to a date that can understand 
+            let date = new Date(device.lastTime)
+            let lastTimeUnderstand = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
         
 
         
@@ -61,7 +63,7 @@ function renderTable(info){
         <th class="${deleteClass} center-items"><button onclick="deleteDevice('${device.deviceIp}', '${device.deviceName}')" class=" btn-danger circle-btn-btn" ><i class="fa fa-trash-o"></i></button></th>
         <th title="click to open the monitoring service for ${device.deviceName}" style="cursor: pointer" scope="row" onClick="openMonitoringService('${device.deviceIp}')">${device.deviceName} </th>
         <td ><a  title="click to open the management service for ${device.deviceName}" class="text-dark" href="http://${device.deviceIp}">${device.deviceIp}</a></td>
-        <td class="${comunicationClass} " >${comunicactionText} / ${device.lastTime}</td>
+        <td class="${comunicationClass} " >${comunicactionText} / ${lastTimeUnderstand}</td>
         <td>${device.batteryVoltage}</td>
       </tr>	`)
       

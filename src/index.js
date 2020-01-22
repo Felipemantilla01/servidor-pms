@@ -30,7 +30,7 @@ async function main(mode) {
                 
             
                 let deviceVars = {
-                    lastTime: lastTime,
+                    lastTime: new Date(),
                     deviceIp : device.deviceIp,
                     deviceName : device.deviceName,
                     comState: comState.isAlive,
@@ -67,7 +67,7 @@ async function main(mode) {
            else{
             let lastTime = captureCurrentTime()
             let deviceVars = {
-                lastTime: lastTime,
+                lastTime: new Date(),
                 deviceIp : device.deviceIp ,
                 deviceName : device.deviceName ,
                 comState: false,

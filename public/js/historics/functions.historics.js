@@ -272,3 +272,8 @@ function renderCharts(historics)
 
     
 }
+
+
+
+
+//date time picker

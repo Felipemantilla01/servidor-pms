@@ -4,6 +4,7 @@ const dbName = 'snmp';
 
 
 const setNewData = (device) =>{
+    
     return new Promise(resolve =>{
         let client = new MongoClient(url, { useNewUrlParser: true,  useUnifiedTopology: true })
             client.connect(function(err, client) {
