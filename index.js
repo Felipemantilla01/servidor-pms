@@ -37,7 +37,7 @@ io.on('connection', function(socket){
     })
 
     socket.on('openingMonitoringService', (deviceIp)=>{
-        console.log(`Opening Monitoring Service for ${deviceIp}`)
+        console.log(`Opening Monitoring Service for ${deviceIp} `)
         setTimeout(() => {
             socket.broadcast.emit('openMonitoringService', deviceIp)
         }, 2000);
@@ -50,9 +50,10 @@ io.on('connection', function(socket){
         //console.log(response)
     })
 
-    socket.on('getHistoricsFor', async (deviceIp)=>{
-        console.log(`Client wants historics of ${deviceIp}`)
-        let response = await clientHistorics.findDeviceHistorics(deviceIp)
+    socket.on('getHistoricsFor', async (deviceIp, rangeDate)=>{
+
+        console.log(`Client wants historics of ${deviceIp} with date ${rangeDate.initialDate} to ${rangeDate.finalDate}`)
+        let response = await clientHistorics.findDeviceHistorics(deviceIp,rangeDate)
         //console.log(response)
         socket.emit('historics', response)
     })

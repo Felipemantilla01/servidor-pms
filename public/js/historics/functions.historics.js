@@ -25,7 +25,22 @@ function renderList(devices){
 
 function openHistoricService(deviceIp){
     console.log(deviceIp)
-    socket.emit('getHistoricsFor', deviceIp)
+    document.getElementById('deviceIp').value = deviceIp
+
+    var date = new Date()
+    var day = date.getDate()
+    var month = date.getMonth()
+    var year = date.getFullYear()
+
+
+    var initialDate = new Date(`${year} ${month+1} ${day}`).toISOString()
+    console.log(initialDate)
+    var rangeDate = {
+      initialDate:initialDate,
+      finalDate: "2100-01-01"
+    }
+
+    socket.emit('getHistoricsFor', deviceIp, rangeDate)
     $('#devicesModal').modal('hide')
 }
 
@@ -34,6 +49,7 @@ function renderCharts(historics)
 {
     //console.log(historics)
 
+    
     var time  = []
     var panelVoltage = []
     var batteryVoltage = []
@@ -46,8 +62,11 @@ function renderCharts(historics)
 
     var i = 0;
     historics.forEach(historic => {
-       
-        time[i] = historic.lastTime
+      
+      let date = new Date(historic.lastTime)
+      let lastTimeUnderstand = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  
+        time[i] = lastTimeUnderstand
         panelVoltage[i] = historic.panelVoltage.substring(0,4)
         batteryVoltage[i] = historic.batteryVoltage.substring(0,4)
         loadVoltage[i] = historic.loadVoltage.substring(0,4)
@@ -69,7 +88,7 @@ function renderCharts(historics)
     var ctxVoltage = document.getElementById('voltage-chart').getContext('2d');
     var ctxCurrent = document.getElementById('current-chart').getContext('2d');
     var ctxTemperature = document.getElementById('temperature-chart').getContext('2d');
-    document.getElementById('device-name').innerHTML = `${historics[0].deviceName}`
+    //document.getElementById('device-name').innerHTML = `${historics[0].deviceName}`
     
     var panelVoltageData = {
     label: "Panel voltage (V)",
@@ -277,3 +296,42 @@ function renderCharts(historics)
 
 
 //date time picker
+
+
+
+
+/*
+
+$(function () {
+  $('#datetimepicker1').datetimepicker();
+      $('#datetimepicker2').datetimepicker({
+          useCurrent: false 
+      });
+      $("#datetimepicker1").on("dp.change", function (e) {
+          $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datetimepicker2").on("dp.change", function (e) {
+          $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+      });
+});
+
+
+
+document.getElementById('btnSearch').addEventListener('click', ()=>{
+ var initialDate = document.getElementById('initialDate').value
+ var finalDate = document.getElementById('finalDate').value
+
+ var initialDateISO = new Date(initialDate)
+ var finalDateISO = new Date(finalDate)
+
+ initialDateISO = initialDateISO.toISOString()
+ finalDateISO = finalDateISO.toISOString()
+
+ var dateRange = {
+     initialDate : initialDateISO,
+     finalDate : finalDateISO
+ }
+
+ console.log(dateRange)
+ // emitir socket con los valores de la consulta
+})*/

@@ -23,7 +23,7 @@ const setNewData = (device) =>{
     })
 }
 
-const findDeviceHistorics = (deviceIp)=>{
+const findDeviceHistorics = (deviceIp, rangeDate)=>{
     return new Promise(resolve => {
 
         let client = new MongoClient(url, { useNewUrlParser: true,  useUnifiedTopology: true })
@@ -32,7 +32,13 @@ const findDeviceHistorics = (deviceIp)=>{
             else{                
                 const db = client.db(dbName);
                 const col = db.collection(`${deviceIp}`);                
-                col.find({}).toArray(function(err, docs) {        
+                col.find(
+                    {
+                        lastTime:{
+                                    $gte : new Date(rangeDate.initialDate),
+                                    $lt : new Date(rangeDate.finalDate)
+                                }   
+        }).toArray(function(err, docs) {        
                     if(err){resolve({status:'error', data:`Can't read the database`}); client.close()}
                     else{
                         resolve({status:'ok', data: docs})
